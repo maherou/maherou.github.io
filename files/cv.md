@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "CV"
 ---
 
@@ -26,4 +27,3 @@ Work experience
   * Scientific software R&D
   * Math Software Research Group (1988 - 1993), Engineering applications (1993 - 1998)
   * R&D in math and scientific libraries for supercomputing applications
-  
