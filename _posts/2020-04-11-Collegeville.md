@@ -2,7 +2,7 @@
 layout: post
 title: "Collegeville Project"
 description: The Collegeville Project is dedicated to the Art & Science of Computational Science and Engineering
-date: 2020-04-11
+date: 2020-04-10
 img: KreigleLake.jpg # Add image post (optional)
 tags: [Computational Science and Engineering, Research Methodologies] # add tag
 ---
