@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CV"
+title: "Curriculum Vitae"
 ---
 
 [Full CV in PDF format - link](https://maherou.github.io/files/MichaelAllenHerouxVitaJune2018Medium.pdf)
