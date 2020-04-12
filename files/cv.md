@@ -1,13 +1,6 @@
 ---
-layout: archive
 title: "CV"
-permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
 ---
-
-{% include base_path %}
 
 [Full CV in PDF format - link](https://maherou.github.io/files/MichaelAllenHerouxVitaJune2018Medium.pdf)
 
@@ -33,22 +26,4 @@ Work experience
   * Scientific software R&D
   * Math Software Research Group (1988 - 1993), Engineering applications (1993 - 1998)
   * R&D in math and scientific libraries for supercomputing applications
-  
-Pubs & Awards
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Events
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching & Service
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
   
