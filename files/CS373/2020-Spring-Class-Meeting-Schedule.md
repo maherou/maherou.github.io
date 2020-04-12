@@ -41,7 +41,7 @@
 | April 20 | **Individual:** Progress status.  | |
 | April 24  | **Due:** Future Trends paper ( [HB, pg 23](./CSCI373CourseHandbookSeventeenthEdition.pdf)). <br> **Assignment:** [Technical Discussions Exercises Preparation.](https://collegeville.github.io/Orator/DiscussionsThatWork/) Submit write up as email attachment prior to April 27 class.  | **TGIF** |
 | April 27 |**In class:** [Technical Discussions Exercises.](https://collegeville.github.io/Orator/DiscussionsThatWork/)   | |
-| May 1 | **In class:** [ATLB Discussion: Chapter 10, 11 & Conclusion](../ATLB-Discussion) <br> **In class:** [Course Retrospective](https://collegeville.github.o/Scribe/Retrospectives/), [Capstone Bingo](../Bingo/Capstone-Bingo) |  |
+| May 1 | **In class:** [ATLB Discussion: Chapter 10, 11 & Conclusion](../ATLB-Discussion) <br> **In class:** [Course Retrospective](https://collegeville.github.io/Scribe/Retrospectives/), [Capstone Bingo](../Bingo/Capstone-Bingo) |  |
 | TBD | **Individual:** SOTF Presentation Dry Run [(HB, pg 24).](./CSCI373CourseHandbookSeventeenthEdition.pdf) | **Dry Run of Formal presentations** |
 | May 8 | **Due:** Final SOTF Talk [(HB, pg 24).](./CSCI373CourseHandbookSeventeenthEdition.pdf) | **Formal presentations** |
 | May 8  | **Due:** Final SOTF Paper [(HB, pg 24).](./CSCI373CourseHandbookSeventeenthEdition.pdf) | **Submit as an email attachment.** |
