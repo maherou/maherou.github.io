@@ -6,7 +6,7 @@
 
 | **Date** | **Assignment and Exercises** | **Notes** |
 | ---------- | --- | --- |
-| January 13 | **In class:** Class Introduction <br> **In class:** Reference librarian (D.Wuolu) <br> **Individual:** Study [Course Handbook](../files/CS373/CSCI373CourseHandbookSeventeenthEdition.pdf) | |
+| January 13 | **In class:** Class Introduction <br> **In class:** Reference librarian (D.Wuolu) <br> **Individual:** Study [Course Handbook](./CSCI373CourseHandbookSeventeenthEdition.pdf) | |
 | January 17 | | **No class: In Lugano, Switzerland** |
 | January 20 | | **No class: Martin Luther King Day** |
 | January 21 | **Due:** Summary of your topic and how it addresses the key requirements listed in the [Handbook](../files/CS373/CSCI373CourseHandbookSeventeenthEdition.pdf) Chapter 3. Send as email attachment before end of day. | **Note:** Not a class day|
