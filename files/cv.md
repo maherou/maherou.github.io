@@ -3,7 +3,7 @@ layout: post
 title: "Curriculum Vitae"
 ---
 
-[Full CV in PDF format - link](https://maherou.github.io/files/MichaelAllenHerouxVitaAugust2020Medium.pdf)
+[Full CV in PDF format - link](https://maherou.github.io/files/MichaelAllenHerouxVitaApril2021Long.pdf)
 
 Education
 ======
