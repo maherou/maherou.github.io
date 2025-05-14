@@ -13,6 +13,14 @@ Education
 
 Work experience
 ======
+* 2025 - present: Hyperion Research, Inc.
+  * HPC-AI Software System Analyst
+  * Research and Analysis in HPC-AI Software Systems and Futures
+
+* 2024 - present: Hewlett Packard Enterprise, Inc.
+  * Visiting Scholar
+  * R&D in scientific software
+
 * 2024 - present: ParaTools, Inc.
   * Senior Research Scientist
   * R&D in scientific software ecosystems
@@ -20,7 +28,7 @@ Work experience
 * 1998 - present: St. John's University, MN
   * Computer Science Department
   * Adjunct (1998 - 2005), Scientist in Residenc (2005 - now).
-  * Courses in numerical analysis, parallel computing, software engineering, research methodologies
+  * Courses in research methodologies, parallel computing, software engineering
 
 * 1998 - 2024: Sandia National Laboratories
   * Staff member in computing research
