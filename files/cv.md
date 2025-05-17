@@ -27,7 +27,7 @@ Work experience
 
 * 1998 - present: St. John's University, MN
   * Computer Science Department
-  * Adjunct (1998 - 2005), Scientist in Residenc (2005 - now).
+  * Adjunct (1998 - 2005), Scientist in Residence (2005 - now).
   * Courses in research methodologies, parallel computing, software engineering
 
 * 1998 - 2024: Sandia National Laboratories
