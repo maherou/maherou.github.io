@@ -32,7 +32,7 @@ Work experience
 
 * 1998 - 2024: Sandia National Laboratories
   * Staff member in computing research
-  * Principal (1998 - 2005), Distinguished (2005 - 2015) Senior Scientist (2015 - now).
+  * Principal (1998 - 2005), Distinguished (2005 - 2015) Senior Scientist (2015 - 2024).
   * R&D in math and computer science for high performance scientific and engineering computing
 
 * 1988 - 1998: Cray Research
