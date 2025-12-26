@@ -1,0 +1,757 @@
+<!--
+######################################################################
+######################################################################
+##
+##   ⚠️  THIS FILE IS MEANT TO BE OPENED AS A WEBPAGE  ⚠️
+##
+##   If you are seeing lots of text and HTML tags instead of photos,
+##   captions, and videos, you are viewing the *source code*, not
+##   the rendered page.
+##
+##   HOW TO VIEW THIS FILE CORRECTLY:
+##
+##   1. Download this file to your computer
+##      (File → Download, or right-click → Save As)
+##
+##   2. Locate the downloaded file on your computer
+##
+##   3. Open it using a web browser:
+##        • Double-click it
+##        • OR right-click → Open With → Chrome / Safari / Edge / Firefox
+##
+##   DO NOT open this file inside Dropbox or a text editor if you want
+##   to see the photos and captions.
+##
+##   Once opened in a browser, this page will display properly.
+##
+######################################################################
+######################################################################
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Family Photo Collections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #f7f7fa;
+      --card-bg: #ffffff;
+      --accent: #355c7d;
+      --accent-light: #6c88a6;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #e0e0ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.9rem, 2.4vw + 1rem, 2.4rem);
+      color: var(--accent);
+    }
+
+    header p {
+      margin: 0.25rem 0;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* Top navigation (collection links) */
+    .collections-nav {
+      margin: 1.75rem auto 2rem;
+      padding: 0.75rem 1rem;
+      background: var(--card-bg);
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .collections-nav a {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--accent);
+      background: #eef2ff;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .collections-nav a:hover,
+    .collections-nav a:focus-visible {
+      background: #dde5ff;
+      border-color: var(--accent-light);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    /* Each collection section */
+    section.collection {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 1.5rem 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    section.collection h2 {
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    section.collection .collection-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    section.collection p.collection-description {
+      margin: 0 0 1.25rem;
+      font-size: 0.98rem;
+    }
+
+    /* Responsive image/video gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: #fafbff;
+      border-radius: 12px;
+      border: 1px solid #e3e7f3;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: pointer; /* indicate clickable */
+    }
+
+    .gallery img,
+    .gallery video {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-height: 230px; /* adjust if you want taller/shorter thumbnails */
+      transition: transform 0.15s ease;
+    }
+
+    .gallery figure:hover img,
+    .gallery figure:hover video {
+      transform: scale(1.02);
+    }
+
+    .gallery figcaption {
+      padding: 0.55rem 0.75rem 0.7rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    /* Lightbox (fullscreen viewer) */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none; /* hidden by default */
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 95vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      background: #111827;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-img-wrap {
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img,
+    .lightbox-img-wrap video {
+      max-width: 100%;
+      max-height: 75vh;
+      display: none; /* we toggle these in JS */
+    }
+
+    .lightbox-caption {
+      padding: 0.75rem 1rem 0.85rem;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      border-top: 1px solid rgba(156, 163, 175, 0.4);
+      background: #020617;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 1.8rem;
+      color: #e5e7eb;
+      cursor: pointer;
+      line-height: 1;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .lightbox-close:focus-visible {
+      outline: 2px solid #e5e7eb;
+      outline-offset: 2px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 1rem 0.75rem 2.5rem;
+      }
+
+      section.collection {
+        padding: 1.2rem 1.1rem 1.4rem;
+      }
+
+      .collections-nav {
+        border-radius: 16px;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <h1>Susan and Mike Heroux Family Christmas 2025</h1>
+      <p>Life for our family has been fairly stable this year.  What news we have you can find below.</p>
+      <p>Click a collection below to jump to that section. Click any image to see a full photo or video.</p>
+
+      <nav class="collections-nav" aria-label="Photo collections">
+        <!-- Update the href IDs and link text to match your real collections -->
+        <a href="#early-2025">Early 2025</a>
+        <a href="#mid-2025">Mid 2025</a>
+        <a href="#late-2025">Late 2025</a>
+      </nav>
+    </header>
+
+    <!-- ===================== -->
+    <!-- Early 2025            -->
+    <!-- ===================== -->
+    <section id="early-2025" class="collection">
+      <h2>Early 2025</h2>
+      <div class="collection-meta"> Early 2025</div>
+      <p class="collection-description">
+        Winter and early spring are typically pretty quiet.  Maple syrup season is a highlight. Peter in Europe is another.
+      </p>
+
+      <div class="gallery">
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/rj3r6r0vgzzypuc67tq5f/2025-01-20_CoraHighlights.jpg?rlkey=kf30qbdl6bulyrrrsqwvwtg5z&raw=1" alt="Cora Highlights" loading="lazy">
+    <figcaption>Cora Highlights on January 20, 2025 [Video] &mdash; On the eve of Cora's fourth birthday, Apple Photos produced this video.  Cora remains a special delight to all of us, given her difficult health challenges as an infant. She continues to thrive, with only one maintenance medication remaining. We are deeply grateful for her continued good health.
+    </figcaption>
+      <video data-video-src="https://www.dropbox.com/scl/fi/wiid0t55ohu2wwpnjb2a6/2025-01-20_CoraHighlights.mp4?rlkey=61tt8xrfz1jncaxa7wovl169e&raw=1" loading="lazy"></video>
+    </figure>
+
+    <figure>
+    <img src="https://www.dropbox.com/scl/fi/xqknkryl6ar5dw45cj9a8/2025-02-21_MargaretApartmentTea.jpg?rlkey=bzdzklg1divv7k2i82ypqbf2u&raw=1" alt="Margaret Apartment Tea" loading="lazy">
+    <figcaption>Margaret Apartment Tea on February 21, 2025 &mdash; Margaret has built a wonderful life for herself in St. Cloud, just thirty minutes from us. She lives in the upper level of an older home and recently began a new job as a benefits coordinator for Stearns County, supporting individuals seeking financial assistance. In a fun family twist, she is a direct user of the software Beth helps build at MNIT, giving Beth a built-in real-world critic. Margaret enjoys close friendships—both from college and from her life in St. Cloud. She frequently joins family gatherings and enjoys visits to Maria and Madeline in Minneapolis. She and I regularly meet for grocery runs and catch-ups.</figcaption>
+    </figure>
+
+    <figure>
+    <img src="https://www.dropbox.com/scl/fi/4c91a7rfgc77p18c4062k/2025-02-25_KindleLibrary.jpg?rlkey=ac0oyjxvs1i9hn9mj324i8rf4&raw=1" alt="Kindle Library" loading="lazy">
+    <figcaption>Kindle Library on February 25, 2025 &mdash; This is a screenshot of my Kindle library's most popular titles.  Super-auntie Maria and I tag team on reading to the Cox and Introne kids.  Bedtime can be a challenge. Tiredness leads to big emotions and urgent demands. Reading to a child via FaceTime can provide some help at peak times.  Sometimes, two kids can listen to the same story.  Sometimes even three, and from both households through FaceTime group calls.  We make it work to help the parents make it through bedtime.  Besides, it is so much fun!</figcaption>
+    </figure>
+
+   <figure>
+    <img src="https://www.dropbox.com/scl/fi/2dw4urguclp94j10dnbzr/2025-03-08_CoraSuckingSap.jpg?rlkey=oypx7c3k4vb9pvnel5abe5ls1&raw=1" alt="Cora Sucking Sap" loading="lazy">
+    <figcaption>Cora Sucking Sap on March 8, 2025 &mdash; Maple syrup season has always been a family event but it has become even more enjoyable with grandkids around.  They love playing out in the woods, drilling holes, hanging buckets, and, yes, checking if the sap is sweet (it's not).</figcaption>
+    </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/msk495ngd26xm9qres9d4/2025-03-08_KipDrillingTree.jpg?rlkey=d02ps3fx2jt6hnnsg1ei3zghe&raw=1" alt="Kip Drilling Tree" loading="lazy">
+    <figcaption>Kip Drilling Tree on March 8, 2025 &mdash; For years, we used a handbrace to make the holes.  That was fun, but the drill is more efficient.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/ckjyd8q4x5bp42m2omtlt/2025-03-17_NerdJokes.jpg?rlkey=9boo10ehihimomcmlgl6l45gn&raw=1" alt="Nerd Jokes" loading="lazy">
+    <figcaption>Nerd Jokes on March 17, 2025 &mdash; A large contingent of our family is nerdy.  We share cool stories about AI, new science, and (bad) jokes.  I am very excited that Madeline is discovering her inner nerd, taking digital design classes at the U of MN: GitHub, Markdown, and more!</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/09y83h4cpbig1gu0c3t2t/2025-04-06_PaulLydiaSuckingSyrup.jpg?rlkey=kbq2q782dqzuvdjkaj6sc3ayj&raw=1" alt="Paul Lydia Sucking Syrup" loading="lazy">
+    <figcaption>Paul and Lydia Sucking Syrup on April 6, 2025 &mdash; Syrup making days are especially fun.  Paul and Lydia, Amy's and David's oldest, get the last of the weak syrup from the filter fabric. Amy and David continue to build a lively and joyful household in Owatonna. Their children are all very active and busy, filling their home with energy, noise, and lots of laughter and silliness.
+  </figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/dka57kbrt9hdb4hxn57n8/2025-04-10_SapBoiling.jpg?rlkey=ga1hfl6xoii58qc3qwnunq43e&raw=1" alt="Sap Boiling" loading="lazy">
+    <figcaption>Sap Boiling on April 10, 2025 &mdash; We have a very low-tech operation, boiling sap in a steel pan over an open fire. The wood fire gives the syrup a beautiful smoky smell and taste. </figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/hmai4d4v96qniulq3scdn/2025-04-16_PeterMilanPiazzadelDuomo.jpeg?rlkey=ziethrguxo8xgvpco9bz4r8hs&raw=1" alt="Peter Milan Piazzadel Duomo" loading="lazy">
+    <figcaption>Peter in Milan at Piazza del Duomo on April 16, 2025 &mdash; Peter spent Spring 2025 in Europe, studying in Cork, Ireland. This picture is from Piazza del Duomo in Milan, one of many cities he visited with friends. Peter is a senior at St. John's University, majoring in computer science with a minor in data science.</figcaption>
+  </figure>
+
+
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- Mid 2025              -->
+    <!-- ===================== -->
+    <section id="mid-2025" class="collection">
+      <h2>Mid 2025</h2>
+      <div class="collection-meta">Middle part of 2025</div>
+      <p class="collection-description">
+        This section of photos is from our busiest time for family life.  Warmer weather, longer days, and school breaks mean more opportunities. The season started with an engagement, then sending Anthony north. Our annual July 4th is always a highlight of the year.
+      </p>
+
+      <div class="gallery">
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/scup3ng96ntbhfy6ktfez/2025-05-08_MadelineJaredEngagement.jpg?rlkey=cxgke1rymik99ytvax0hmhwc1&raw=1" alt="Madeline Jared Engagement" loading="lazy">
+    <figcaption>Madeline and Jared Engagement on May 7, 2025 &mdash; Madeline and her long-time boyfriend Jared Rhaburn got engaged on May 7. Their wedding is 10-10-26. Jared is working as a clerk for a county judge in Virginia, Minnesota. A young Black man from Los Angeles adjusting to rural northern Minnesota appears, at times, like the premise of a (probably one-season?) sitcom.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/m2vvnuvm6knqf9iq9g5du/2025-05-08_MariaMadelinePeter.jpg?rlkey=68ibzprtczzkcofitlzee2zll&raw=1" alt="Maria Madeline Peter" loading="lazy">
+    <figcaption>Maria, Madeline, and Peter on May 8, 2025 &mdash; Enjoying an outdoor meal on one of the first summer-like days in Minneapolis, blocks away from Maria's and Madeline's flat in Uptown.  Maria and Madeline both work for the U of MN Child Development Center.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/19mcwp3qiwbhv6zun8hcl/2025-06-14_AlmostWholeFamilyCanoeSendoff.jpg?rlkey=1u125xpmdtp94ryy6579bxz0p&raw=1" alt="Almost Whole Family Canoe Sendoff" loading="lazy">
+    <figcaption>Almost-the-Whole-Family Canoe Sendoff on June 14, 2025 &mdash; It's hard to get all of us together at once.  We did pretty well on this sendoff for Anthony (missing: Tristan, Andrew, Annika, Little Peter) as he was leaving for a four-week canoe trip in northern Ontario.  Anthony just finished his first semester at St. John's University, studying both computer science and physics.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/61lma9t89m3v59cz8gqbv/2025-06-19_CharlotteKipRowing.jpg?rlkey=f9f9l02859fxd4nqoza2dee6w&raw=1" alt="Charlotte Kip Rowing" loading="lazy">
+    <figcaption>Charlotte and Kip Rowing, Nathan on Anchor, me on camera on June 19, 2025 &mdash; Kriegle Lake has ample sunfish and crappies. It's small so our boats are human-powered.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/twr0u8btxfl9gatm4l2b7/2025-07-02_BethCoraKayak.jpg?rlkey=xgwblwisg9hkwcnjwhxcwolwi&raw=1" alt="Beth Cora Kayak" loading="lazy">
+    <figcaption>Beth, Cora, and Charlotte Kayaking on July 2, 2025 [video] &mdash; For several years, the week around July 4th has been a time for all of family to gather at St. John's.  Sagatagan is a beautiful spring-fed lake.  The beach and boathouse provide fun on hot sunny days.</figcaption>
+    <video data-video-src="https://www.dropbox.com/scl/fi/z14jskoq8zcx3s32s6isi/2025-07-02_BethCoraKayak.mp4?rlkey=hder6dn1ulwf2azwj1j2e31y1&raw=1" loading="lazy"></video>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/dr5svv6ip65kg8gjhvsae/2025-07-02_NathanJanGeorgeSjuReef.jpg?rlkey=mmehax6yqonypp7rxln19imfw&raw=1" alt="Nathan Jan George SJU Reef" loading="lazy">
+    <figcaption>Nathan, Jan, George at SJU 'Reef' on July 2, 2025 &mdash; During our July 4th week at St. John's, we eat a meal a day at the Refectory, which the kids love, as do the adults with big appetites.  It's also a chance to meet up with others like my dad George and his companion Jan. George and Jan winter in Texas and summer in Lakeville.  Nathan continues working as an IT specialist for the Hopkins school district.  He is a dedicated uncle, holding season passes to Valley Fair and the Minnesota Zoo so he can join nieces and nephews whenever possible.  He is also one of the Minecraft Bros. He, his brothers, and the Cox and Introne kids play regularly.  It's fun and a great opportunity for mentoring.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/y0ov2d9mpevf4qm1fm1av/2025-07-02_PaulKipMichaelSjuBeach.jpg?rlkey=90b3zw7xkjjyfjlgtuui9hup7&raw=1" alt="Paul Kip Michael SJU Beach" loading="lazy">
+    <figcaption>Paul Kip Michael SJU Beach on July 2, 2025 &mdash; Here is another photo from the SJU beach.  The kids make their own adventures.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/x5j6w3s7xu911qx0trf8o/2025-07-04_AndrewLittlePeterBike.jpg?rlkey=yssudjurkebxxdvt0h2afzynl&raw=1" alt="Andrew Little Peter Bike" loading="lazy">
+    <figcaption>Andrew, Little Peter Biking on July 4, 2025 &mdash; In the evenings at St. John's, we play on the lawn outside the Refectory.  A good time for kids to run around and adults to chat.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/n7r86b9ybydi31robpgmy/2025-07-04_CoraMikeStJoeParade.jpg?rlkey=3ah0bpld65kzkapzy9tbfhcvw&raw=1" alt="Cora Mike St Joe Parade" loading="lazy">
+    <figcaption>Cora and Mike at St. Joe Parade on July 4, 2025 &mdash; The July 4th Parade in nearby St. Joe was especially nice this year.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/pxmh2rgzfeblntc4yoffr/2025-07-04_DominicStJoeParade.jpg?rlkey=ckrtmkiszvg0kwx7zmt4gcxr1&raw=1" alt="Dominic St Joe Parade" loading="lazy">
+    <figcaption>Dominic at St Joe Parade on July 4, 2025 &mdash; Dominic enjoyed the parade too, especially the candy.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/zdiq6iqivzejf2m9mglsa/2025-07-04_PaulMariaAmyFlynntown.jpg?rlkey=os0lexl4rvt4lpxceke9tcqjw&raw=1" alt="Paul Maria Amy Flynntown" loading="lazy">
+    <figcaption>Paul, Maria and Amy at Flynntown Apartments on July 4, 2025 &mdash; During our July 4th stay, we rent a floor in the Flynntown Apartments on campus. The combination of private rooms, multiple kitchens, and a common area for games provides a nice environment for everyone.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/15xe3e3s80a1xi8ikqdgw/2025-07-25_DominicLydiaJunebug.jpg?rlkey=t7c0vwbvdudmkmzm9zcb9ymhl&raw=1" alt="Dominic Lydia Junebug" loading="lazy">
+    <figcaption>Dominic and Lydia, Junebug Scare on July 25, 2025 [video] &mdash; This is one of my favorite videos from last year.  Watch to the end.</figcaption>
+    <video data-video-src="https://www.dropbox.com/scl/fi/70bu5v5styjhxyk0hk0nn/2025-07-25_DominicLydiaJunebug.mp4?rlkey=yt29p22yrg90ttga9lanhugb7&raw=1" loading="lazy"></video>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/ihi5an3iloeu9zvebenkh/2025-08-03_AnnikaLittlePeterWaterpark.jpg?rlkey=vecdwos7a9ri38dlptk4vsznv&raw=1" alt="Annika Little Peter Waterpark" loading="lazy">
+    <figcaption>Annika and Little Peter at the Owatonna Waterpark on August 3, 2025 &mdash; Another favorite summer activity is visiting the waterpark in Owatonna. It has something for all ages.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/e9fc5e4elrz32f4ddqip1/2025-08-10_PeterMichaelTonyWaterpark.jpg?rlkey=jheos9j98ra5kznircihsoelc&raw=1" alt="Peter Michael Tony Waterpark" loading="lazy">
+    <figcaption>Peter, Michael and Tony at the Owatonna Waterpark on August 10, 2025 &mdash; In addition to swimming, we have a chance to hang out.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/0fyscrwpu189i8xomzrtn/2025-08-16_LittlePeterViolin.jpg?rlkey=t5rcvmeswxieqsivzqy36x1p0&raw=1" alt="Little Peter Violin" loading="lazy">
+    <figcaption>Little Peter Violin on August 16, 2025 &mdash; Annika has her own music-lesson business and now teaches several violin students. They enjoy family life and the benefit of being only a few blocks from Amy and David.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/e7ye0f74idh2l284o33bm/2025-08-19_MikeMariaMadelineMargaretSaraIsakovConcert.jpg?rlkey=qdfzkfikd76ppny5xnvysf5ca&raw=1" alt="Mike Maria Madeline Margaret Sara Isakov Concert" loading="lazy">
+    <figcaption>Mike, Maria, Madeline, Margaret, and Sara Hoppe at Isakov Concert on August 19, 2025 &mdash; Gregory Alan Isakov came to St. Paul. We are fans.  Good friend Sara Hoppe joined us.  It was a lovely evening.  Good music and weather.</figcaption>
+  </figure>
+
+   <figure>
+    <img src="https://www.dropbox.com/scl/fi/7v10a6177mrow7cuqo2qc/2025-08-28_MadelineFishCleaning.jpg?rlkey=ohcqb4r3re67r2hat03yqtz4g&raw=1" alt="Madeline Fish Cleaning" loading="lazy">
+    <figcaption>Madeline Fish Cleaning on August 28, 2025 &mdash; A late summer visit from Madeline to go fishing.  Margaret and I went too.  We had good luck. Madeline wanted to clean the fish. Margaret and I enjoyed watching her.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/9z21ikw8sfzyla4mxgytl/2025-08-30_PaulLydiaMichaelPaddleboat.jpg?rlkey=2lzt6akgw04t7jiqkx7jlledb&raw=1" alt="Paul Lydia Michael Paddleboat" loading="lazy">
+    <figcaption>Paul, Lydia, and Michael on the Paddleboat on August 30, 2025 &mdash; Papa's Beach is probably the most popular place for our grandkids.  They spend countless hours there any time of year but especially in the summer.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/nxbqk6d6ggotjwjxhkonb/2025-08-31_DavidPaulBass.jpg?rlkey=x5ykgt0z2dsl3wi0i5rzxl6wt&raw=1" alt="David Paul Bass" loading="lazy">
+    <figcaption>David and Paul holding David's catch on August 31, 2025 &mdash; Kreigle Lake also has good largemouth bass. Another beautiful late summer evening on the lake.</figcaption>
+  </figure>
+
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- Late 2025             -->
+    <!-- ===================== -->
+    <section id="late-2025" class="collection">
+      <h2>Late 2025</h2>
+      <div class="collection-meta">Late 2025</div>
+      <p class="collection-description">
+        Fall and winter make extended family time more difficult, but we still have some nice moments together. This fall also marked the end of children at home for Susan and me, a big change after 40+ years. 
+      </p>
+
+      <div class="gallery">
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/exdnc07418pfy9o1w86xr/2025-07-01_AnthonyHighSchool.jpg?rlkey=u4cui3m4gxbjwcacmrgwwkfn8&raw=1" alt="Anthony High School" loading="lazy">
+    <figcaption>Anthony's High School photos, Grade 9 - 12 &mdash; After 40+ years, Susan and I have no children living at home.  While the number of kids around the house has been declining for years and Anthony was often gone from the house as a high school senior, having no kids at home this fall was a big change that Susan and I are still adjusting to.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/sd3lnntucp5nswdm52m57/2025-09-07_BethKipFacePainted.jpg?rlkey=z04n4w8vy9j6fzw4xep1vuo5a&raw=1" alt="Beth Kip Face Painted" loading="lazy">
+    <figcaption>Beth and Kip Face Paintings on September 7, 2025 &mdash; The Defeat of Jesse James Day is a great community celebration in Northfield the first week in September.  Soapbox derby races and the parade are highlights.  Mischievious men wander the parade route marking the faces of standers-by.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/nv1q43lyyqxnk7w553mg8/2025-09-11_LittlePeterGoofy.jpg?rlkey=2ic4uwuwaqgn72bd9lq8txyc6&raw=1" alt="Little Peter Goofy" loading="lazy">
+    <figcaption>Little Peter Being Goofy on September 11, 2025 &mdash; FaceTime calls provide many opportunities to capture silly moments.  This is one of them.  Someday I might write a little guide on FaceTime games to play with young kids.  We have so much fun.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/1f7634f9n331fqh5wvcxc/2025-09-13_CoxIntroneNerstrand.jpg?rlkey=ehzoha0gpbusm29bel3xmenk4&raw=1" alt="Cox Introne Nerstrand" loading="lazy">
+    <figcaption>Cox's and Introne's at Nerstrand Park on September 13, 2025 &mdash; Nerstrand Big Woods State Park is between Owatonna and Northfield, a good place for cousins (and Northfield neighbors Fox and Bernard - Kip's adventure bros) to meet for the afternoon.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/2xvkkzh1y5wl2i1qcx79d/2025-09-13_LittlePeterMaryStatue.jpg?rlkey=bove3blnr6pr7vsm5rowaua6z&raw=1" alt="Little Peter Mary Statue" loading="lazy">
+    <figcaption>Little Peter and Mary Statue on September 13, 2025 &mdash; During a walk to the playground at St. Mary's School in Owatonna, Little Peter spent several minutes hugging Mary.  He already seems to know her. Lovely.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/hwi89wmogjlb3qbqeuk9z/2025-10-05_SusanMikeItasca.jpg?rlkey=ils1wf8yry7vfa62ynczrbahx&raw=1" alt="Susan Mike" loading="lazy">
+    <figcaption>Susan and Mike on October 5, 2025 &mdash; Susan and I had a chance to get away to Itasca State Park, a nice break from normal life.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/cjwzxlfkd2pehvela9qcj/2025-10-19_DavidAnthonyNewBed.jpg?rlkey=g14pqw93ioj3ay0ruunjhs57o&raw=1" alt="David Anthony New Bed" loading="lazy">
+    <figcaption>David and Anthony on Anthony's new bed on October 19, 2025 &mdash; After months of effort cutting, sanding, and finishing, Anthony constructed his new bed with expert coaching from David.  David's ability to turn common pine lumber into sturdy and beautiful furniture is impressive.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/m91m3jz4g8e731yeua93l/2025-10-24_SusanMikeAnthonyMensChorus.jpg?rlkey=fflf9m7xs6zdmzm1p1w1fy4oc&raw=1" alt="Susan Mike Anthony Mens Chorus" loading="lazy">
+    <figcaption>Susan, Mike, and Anthony at Mens Chorus event on October 24, 2025 &mdash; Anthony joined the St. John's University Mens Chorus this year.  Beautiful secular and sacred music.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/imwge0ivpfsa7eu8kodn8/2025-10-31_AndrewAnnikaLittlePeter.jpg?rlkey=dlfiuf82gzkadfyz79wksgd6n&raw=1" alt="Andrew Annika Little Peter" loading="lazy">
+    <figcaption>Andrew, Annika, and Little Peter on October 31, 2025 &mdash; Dressed as Peter Pan, Wendy, and Captain Hook, they greeted Trick-or-Treaters on a beautiful fall evening.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/vmxmrw49776zw1r0hsdy0/2025-10-31_IntroneHalloween.jpg?rlkey=296omvnqmajnv475cfcr4hls5&raw=1" alt="Introne Halloween" loading="lazy">
+    <figcaption>Introne's, Uncles, and Papa Halloween on October 31, 2025 &mdash; Weather and timing made it possible to get together for Halloween this year.  Lots of fun in Owatonna.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/du5bnydsslxajucvu0ipf/2025-11-01_CakePops.jpg?rlkey=5jeztdrwtdvr2gfigoi1br3s3&raw=1" alt="Cake Pops" loading="lazy">
+    <figcaption>Cake Pops on November 1, 2025 &mdash; Amy's and David's home is often a gathering place for family events.  This day, we were celebrating Dominic's third birthday (a bit late) and my 64th (a bit early). Cake pops were made by Madeline.  So tasty and filling.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/2g9dvgmf97u6nauu1gccb/2025-11-01_MadelineMichael.jpg?rlkey=hlttnv32fl2baasme75jfb2m6&raw=1" alt="Madeline Michael" loading="lazy">
+    <figcaption>Madeline and Michael on November 1, 2025 &mdash; At the same birthday gathering, Madeline and Michael share some ice cream and goofiness. Madeline is Michael's Godmama and they have a very special relationship.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/fxll2c3jvo7t02o023r2y/2025-11-02_CoraHaircut.jpg?rlkey=89xefe0r3p6aag3ddunfooqm9&raw=1" alt="Cora Haircut" loading="lazy">
+    <figcaption>Cora's Haircut on November 2, 2025 &mdash; When your hair is long and curly like Cora's, a haircut is a big deal.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/i1aj75sdv25bo2pkjlec3/2025-11-03_ClassOf1980Reunion.jpg?rlkey=9kytucpfbna3hnd0gbi1sjj5u&raw=1" alt="Class Of1980Reunion" loading="lazy">
+    <figcaption>Class Of 1980 Reunion on November 3, 2025 &mdash; I seldom make it back to Foley, MN where I grew up but it was a treat to attend my 45th class reunion at the local establishment Mr. Jim's.  We are definitely older and slower. The following day, I attended the 90th birthday party of Virginia Lewandowski, mother of some of my closest high school friends.  It was such a treat to connect with their family after many years.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/ec8d4cu3rsv67xfk5bdqj/2025-11-11_SpectacularNorthernLights.jpg?rlkey=h001mdomjiwk5d0czi2r0r1au&raw=1" alt="Spectacular Northern Lights" loading="lazy">
+    <figcaption>Spectacular Northern Lights on November 11, 2025 [video] &mdash; The November 11 northern lights were spectacular in many parts of the country.  We had perfect conditions, mild weather, no bugs, no clouds.  Susan and I had a lovely evening together down at the lake.  It was also my 64th birthday.  Quite a gift.</figcaption>
+    <video data-video-src="https://www.dropbox.com/scl/fi/tdc3q4c0jr55h2ydo8pik/2025-11-11_SpectacularNorthernLights.mp4?rlkey=9dafdcl2onn5bx81q17t15cxj&raw=1" loading="lazy"></video>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/zlnwfn4b5f31mt7zozlqj/2025-11-12_LittlePeterHaircut.jpg?rlkey=dgyas0ri90hvcvznqu723iuou&raw=1" alt="Little Peter Haircut" loading="lazy">
+    <figcaption>Little Peter gets a Haircut on November 12, 2025 &mdash; Annika did it quickly while she still had the resolve to do it.  The long curls are so cute, it's hard to cut them off.  Dominic still has his.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/qtdg6y8i8ii6j5ao57g1w/2025-11-15_AndrewAnnikaPeterPortrait.jpg?rlkey=funxq7yx9zc0j5xydxoeuuqm6&raw=1" alt="Andrew Annika Peter Portrait" loading="lazy">
+    <figcaption>Andrew, Annika, and Peter Portrait on November 15, 2025 &mdash; Andrew and Annika had a photographer friend take some beautiful photos.  Such a lovely young family.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/9bxwmzjh9e9qx0dbw40yu/2025-11-15_AndrewAnnikaPeterRunning.jpg?rlkey=06bhpusfadavoeu6dsbh60hr3&raw=1" alt="Andrew Annika Peter Running" loading="lazy">
+    <figcaption>Andrew, Annika Peter Running on November 15, 2025 &mdash; Peter is so playful.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/jyy3kd03bdt8juncpqwa4/2025-11-16_CoraNoodleFace.jpg?rlkey=1otz1t7hrh1h1s8z9iaqnnce4&raw=1" alt="Cora Noodle Face" loading="lazy">
+    <figcaption>Cora's Noodle Face on November 16, 2025 &mdash; Here is another FaceTime game. Cora and I were making silly faces and playing with our food.  So fun.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/38hez5ure1bsri9iw9p6t/2025-11-28_PeterNathanAnthony.jpg?rlkey=hyw6xvz95bhm9a58zc3kmp9qt&raw=1" alt="Peter Nathan Anthony" loading="lazy">
+    <figcaption>Peter, Nathan, and Anthony on November 28, 2025 &mdash; A chance moment on Thanksgiving.  Nathan with his 'little' brothers.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/x1zxxfv7m6qllv339dv8n/2025-11-29_LittlePeterChoppingVeggies.jpg?rlkey=95t4tykr7zxhfftnhvlknm9yv&raw=1" alt="Little Peter Chopping Veggies" loading="lazy">
+    <figcaption>Little Peter Chopping Veggies on November 29, 2025 [video] &mdash; Peter received the step stool so he can help with kitchen work.  In addition to food prep, he is pretty good as a barista.</figcaption>
+    <video data-video-src="https://www.dropbox.com/scl/fi/0pia230sjinelczoz2z85/2025-11-29_LittlePeterChoppingVeggies.mp4?rlkey=gjdbz8gxpahgk44q1xage59pv&raw=1" loading="lazy"></video>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/ots773ffs80lxb4hxm35z/2025-12-01_AnnikaLittlePeterSmile.jpg?rlkey=onw1tp8458oy00ht79t1kra6t&raw=1" alt="Annika Little Peter Smile" loading="lazy">
+    <figcaption>Annika and Little Peter Smile on December 1, 2025 &mdash; A two-year-old's birthday photo. So lovely.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/pcvttpmxtod4neu0yi7zm/2025-12-05_AnthonyMensChorus.jpg?rlkey=9dpw30im5r5cqwq0ff8nmtstx&raw=1" alt="Anthony Mens Chorus" loading="lazy">
+    <figcaption>Anthony's Mens Chorus Concert on December 5, 2025 &mdash; The Mens Chorus and others put on a Christmas concert at the Great Hall on campus.  Anthony is in the upper left.  Look for the long blond hair.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/0i2cv7lv4jnw492lf2r7s/2025-12-06_MariaAnthonyBasilica.jpg?rlkey=zrr1lfghi4bbth660nrmvjbz2&raw=1" alt="Maria Anthony Basilica" loading="lazy">
+    <figcaption>Maria, Susan, Anthony Basilica on December 6, 2025 &mdash; The choirs perform the same concert at the Basilica of St. Mary in Minneapolis.  Susan (taking the photo) and Maria attended.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/8v58lealf9qi3c0hkcz5r/2025-12-07_AndrewAnnikaPeter.jpg?rlkey=kyialh2kg3ikucpfjnferxl16&raw=1" alt="Andrew Annika Peter" loading="lazy">
+    <figcaption>Andrew, Annika, and Peter on December 7, 2025 &mdash; Andrew and Annika hosted a party for Little Peter's birthday.  So much fun for us.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/5ittblmwes7wis0lexwwe/2025-12-07_LittlePeterHappy.jpg?rlkey=9sr54turw49zlookj7qkjw5jg&raw=1" alt="Little Peter Happy" loading="lazy">
+    <figcaption>Little Peter Happy on December 7, 2025 &mdash; As this photo shows, Peter was so happy at his party.  He loved being around so many people who love him.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="https://www.dropbox.com/scl/fi/hcfxicstsox2b29mauwuv/2025-12-07_SusanMikeLittlePeter.jpg?rlkey=4w8zyiupr0wqzi4k3exrxkcqo&raw=1" alt="Susan Mike Little Peter" loading="lazy">
+    <figcaption>Susan, Mike, and Little Peter on December 7, 2025 &mdash; Susan and I get a chance to make a Little Peter sandwich.  So fun.</figcaption>
+  </figure>
+
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Last updated:
+        <time datetime="2025-12-25">December 25, 2025</time>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Lightbox markup -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close media">&times;</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" controls></video>
+      </div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxVideo = document.getElementById('lightbox-video');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function showImage(src, alt, captionText) {
+        // Hide video, stop and clear it
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute('src');
+        lightboxVideo.load();
+        lightboxVideo.style.display = 'none';
+
+        // Show image
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        lightboxImg.style.display = 'block';
+
+        lightboxCaption.textContent = captionText || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+
+      function showVideo(src, captionText) {
+        // Hide image
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+        lightboxImg.style.display = 'none';
+
+        // Show video
+        lightboxVideo.style.display = 'block';
+        lightboxVideo.src = src;
+        lightboxVideo.load();
+        // Attempt to play; user click should count as gesture
+        lightboxVideo.play().catch(function () {});
+
+        lightboxCaption.textContent = captionText || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+
+        // Clear image
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+
+        // Stop and clear video
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute('src');
+        lightboxVideo.load();
+      }
+
+      // Open lightbox when any gallery figure is clicked
+      document.addEventListener('click', function (event) {
+        const figure = event.target.closest('figure');
+        if (!figure || !figure.closest('.gallery')) return;
+
+        const img = figure.querySelector('img');
+        const video = figure.querySelector('video');
+        const caption = figure.querySelector('figcaption');
+        const captionText = caption ? caption.textContent : '';
+
+        if (video) {
+          // Determine video source:
+          // Prefer a data-video-src attribute if present, otherwise use src/currentSrc.
+          const videoSrc =
+            video.getAttribute('data-video-src') ||
+            video.currentSrc ||
+            video.src;
+
+          if (videoSrc) {
+            showVideo(videoSrc, captionText);
+          }
+        } else if (img) {
+          showImage(img.src, img.alt, captionText);
+        }
+      });
+
+      // Close button
+      lightboxClose.addEventListener('click', function (event) {
+        event.stopPropagation();
+        closeLightbox();
+      });
+
+      // Click outside the inner box to close
+      lightbox.addEventListener('click', function (event) {
+        const inner = event.target.closest('.lightbox-inner');
+        if (!inner) {
+          closeLightbox();
+        }
+      });
+
+      // ESC key closes
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
