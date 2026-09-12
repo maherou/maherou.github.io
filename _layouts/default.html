@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {% seo %}
+  <link rel="shortcut icon" href="{{ '/assets/img/favicon/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/favicon/apple-touch-icon.png' | relative_url }}">
+  <meta name="theme-color" content="#9a5a24">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
 <body>
-
-  <div class="wrapper">
+  {% include nav.html %}
+  <main>
     {{ content }}
-  </div>
-  
-  {% include analytics.html %}
+  </main>
+  {% include footer.html %}
+  {% if site.analytics %}{% include analytics.html %}{% endif %}
 </body>
 </html>

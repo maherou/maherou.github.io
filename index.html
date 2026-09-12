@@ -1,17 +1,73 @@
 ---
-layout: main
+layout: default
+title: Michael A. Heroux
 ---
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 30 }}</p>
+<section class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <h1>Four decades building the software behind high-performance computing.</h1>
+      <p class="lede">
+        Mike Heroux founded and led some of the most widely used software in scientific
+        computing &mdash; Trilinos, Kokkos, Mantevo, HPCG, E4S &mdash; first at Sandia National
+        Laboratories, and for nearly three decades alongside teaching at St. John's University.
+        Since retiring from both, he continues that work through a small set of part-time roles.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-secondary" href="{{ '/Bio/' | relative_url }}">Full biography</a>
+        <a class="btn btn-secondary" href="{{ '/Projects/' | relative_url }}">Research &amp; legacy projects</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="{{ '/assets/img/MikeHerouxHeadshot.jpg' | relative_url }}" alt="{{ site.author }}">
+    </div>
   </div>
-</article>
-{% endfor %}
+</section>
 
-{% include pagination.html %}
+<section class="block">
+  <div class="container">
+    <h2>Current roles</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>ParaTools, Inc.</h3>
+        <p>Senior Research Scientist &mdash; R&amp;D in scientific software ecosystems.</p>
+      </div>
+      <div class="card">
+        <h3>Hewlett Packard Enterprise</h3>
+        <p>Visiting Scholar &mdash; R&amp;D in scientific software.</p>
+      </div>
+      <div class="card">
+        <h3>Hyperion Research</h3>
+        <p>HPC-AI Software System Analyst &mdash; research and analysis on HPC-AI software systems and futures.</p>
+      </div>
+      <div class="card">
+        <h3>PESO Project</h3>
+        <p>Co-lead, with Lois Curfman McInnes, stewarding scientific software ecosystems for the DOE Office of Advanced Scientific Computing Research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="container">
+    <h2>Recognition</h2>
+    <ul class="honors-list">
+      <li>2026 SIAM Activity Group on Supercomputing Career Prize</li>
+      <li>2025 HPC Legend (HPCwire, class of 35)</li>
+      <li>2024 Secretary of Energy Achievement Award (US Exascale Computing Project)</li>
+      <li>Fellow, Society for Industrial and Applied Mathematics (SIAM)</li>
+      <li>Distinguished Member, Association for Computing Machinery (ACM)</li>
+      <li>Senior Member, IEEE</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <h2>More</h2>
+    <div class="button-row">
+      <a class="btn btn-secondary" href="{{ '/Writing/' | relative_url }}">Writing &amp; presentations</a>
+      <a class="btn btn-secondary" href="{{ '/Teaching/' | relative_url }}">Teaching archive</a>
+      <a class="btn btn-secondary" href="{{ '/Now/' | relative_url }}">What I'm doing now</a>
+    </div>
+  </div>
+</section>
