@@ -30,7 +30,12 @@ not part of this repo and are not built by this repo's workflow:
 - [`maherou/Teaching`](https://github.com/maherou/Teaching) → `/Teaching/*` — the CS373/CS317
   course archive. Kept separate deliberately: it's a large (~400MB) archive of course materials
   (handbooks, schedules, sample papers, video), and folding it into this repo would bloat it for
-  no benefit since it's no longer being actively taught.
+  no benefit since it's no longer being actively taught. **Left untouched on purpose** — many
+  external links point directly into it, and it is not being moved or redirected.
+  The "Teaching Archive" nav link on this site, however, points to
+  [collegeville.github.io/Corpus](https://collegeville.github.io/Corpus/) (a separate, newer
+  repackaging of the same teaching content), not to this repo — see `nav` in `_config.yml`
+  (`external: true` entries link out as-is, skipping `relative_url`).
 - [`maherou/MJConnections`](https://github.com/maherou/MJConnections) → `/MJConnections/` —
   personal (wedding) site, unrelated to the professional content here. Shared privately by link;
   not linked from this site, and `noindex`/`robots.txt` were added there too.

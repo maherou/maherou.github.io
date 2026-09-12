@@ -9,7 +9,11 @@
     <nav class="site-nav">
       <ul>
         {% for item in site.nav %}
+        {% if item.external %}
+        <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a></li>
+        {% else %}
         <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {% endif %}
         {% endfor %}
       </ul>
     </nav>

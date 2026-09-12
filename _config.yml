@@ -28,7 +28,8 @@ nav:
   - title: Writing
     url: /Writing/
   - title: Teaching Archive
-    url: /Teaching/
+    url: https://collegeville.github.io/Corpus/
+    external: true
   - title: CV
     url: /files/cv/
 
