@@ -59,6 +59,13 @@ defaults:
       type: projects
     values:
       layout: project
+  # Shared privately by direct link only — keep it out of sitemap.xml without giving it
+  # front matter (it's a large hand-written static file; front matter would route it through
+  # Liquid, which is unnecessary risk for a page that never needs templating).
+  - scope:
+      path: "2025HerouxFamilyAlbum.html"
+    values:
+      sitemap: false
 
 exclude:
   - node_modules
