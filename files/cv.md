@@ -1,9 +1,9 @@
 ---
-layout: post
 title: "Curriculum Vitae"
+permalink: /files/cv/
 ---
 
-[Full CV in PDF format - link](https://maherou.github.io/files/MichaelAllenHerouxVitaCurrent.pdf)
+[Full CV in PDF format]({{ '/files/MichaelAllenHerouxVitaCurrent.pdf' | relative_url }})
 
 Education
 ======

@@ -1,17 +1,82 @@
 ---
-layout: main
+layout: default
+title: Michael A. Heroux
 ---
-{% for post in paginator.posts %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 30 }}</p>
+<section class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <div class="eyebrow">Consulting &middot; Advisory &middot; Research Leadership</div>
+      <h1>HPC-AI software strategy, from four decades of building it.</h1>
+      <p class="lede">
+        I'm Mike Heroux. After retiring from full-time roles at Sandia National Laboratories and
+        teaching at St. John's University, I now consult and advise on scientific and
+        high-performance computing software strategy &mdash; helping organizations build, sustain,
+        and get value from the software ecosystems that power HPC and AI-driven research.
+      </p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="{{ '/Consulting/' | relative_url }}">Work with me</a>
+        <a class="btn btn-secondary" href="{{ '/Bio/' | relative_url }}">Full biography</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="{{ '/assets/img/MikeHerouxHeadshot.jpg' | relative_url }}" alt="{{ site.author }}">
+    </div>
   </div>
-</article>
-{% endfor %}
+</section>
 
-{% include pagination.html %}
+<section class="block">
+  <div class="container">
+    <h2>Current engagements</h2>
+    <p class="section-intro">Since stepping back from full-time employment, my work is advisory and part-time by design.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>ParaTools, Inc.</h3>
+        <p>Senior Research Scientist &mdash; R&amp;D in scientific software ecosystems.</p>
+      </div>
+      <div class="card">
+        <h3>Hewlett Packard Enterprise</h3>
+        <p>Visiting Scholar &mdash; R&amp;D in scientific software.</p>
+      </div>
+      <div class="card">
+        <h3>Hyperion Research</h3>
+        <p>HPC-AI Software System Analyst &mdash; research and analysis on HPC-AI software systems and futures.</p>
+      </div>
+      <div class="card">
+        <h3>PESO Project</h3>
+        <p>Co-lead, with Lois Curfman McInnes, stewarding scientific software ecosystems for the DOE Office of Advanced Scientific Computing Research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="container">
+    <h2>Recognition</h2>
+    <ul class="honors-list">
+      <li>2026 SIAM Activity Group on Supercomputing Career Prize</li>
+      <li>2025 HPC Legend (HPCwire, class of 35)</li>
+      <li>2024 Secretary of Energy Achievement Award (US Exascale Computing Project)</li>
+      <li>Fellow, Society for Industrial and Applied Mathematics (SIAM)</li>
+      <li>Distinguished Member, Association for Computing Machinery (ACM)</li>
+      <li>Senior Member, IEEE</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <h2>A career founding scientific software</h2>
+    <p class="section-intro">
+      Founder of the Trilinos scientific libraries, the Kokkos performance-portability ecosystem,
+      the Mantevo miniapps, and the HPCG benchmark; former director of software technology for the
+      US Exascale Computing Project; founder of the Extreme-scale Scientific Software Stack (E4S).
+      These efforts continue as an active body of work &mdash; see
+      <a href="{{ '/Projects/' | relative_url }}">Research &amp; legacy projects</a>.
+    </p>
+    <div class="button-row">
+      <a class="btn btn-secondary" href="{{ '/Projects/' | relative_url }}">Research &amp; legacy projects</a>
+      <a class="btn btn-secondary" href="{{ '/Writing/' | relative_url }}">Writing &amp; presentations</a>
+      <a class="btn btn-secondary" href="{{ '/Teaching/' | relative_url }}">Teaching archive</a>
+    </div>
+  </div>
+</section>

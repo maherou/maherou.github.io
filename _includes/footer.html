@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div>&copy; {{ site.time | date: '%Y' }} {{ site.author }}</div>
+      <div class="footer-personal">Also on this site: <a href="{{ '/2025HerouxFamilyAlbum.html' | relative_url }}">Family album</a> &middot; <a href="{{ '/MJConnections/' | relative_url }}">Madeline &amp; Jared's wedding site</a></div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:{{ site.email }}">Email</a></li>
+      {% if site.social.linkedin %}<li><a href="https://www.linkedin.com/in/{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+      {% if site.social.github %}<li><a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+      {% if site.social.google_scholar %}<li><a href="https://scholar.google.com/{{ site.social.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
+    </ul>
+  </div>
+</footer>

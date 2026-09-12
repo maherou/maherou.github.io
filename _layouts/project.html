@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="page-content">
+  <div class="container">
+    <p><a href="{{ '/Projects/' | relative_url }}">&larr; Research &amp; legacy projects</a></p>
+    <header>
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.years %}<p class="page-subtitle">{{ page.years }}</p>{% endif %}
+    </header>
+    {% if page.img %}
+    <img class="card-img" style="height:auto; max-height:220px;" src="{{ page.img | prepend: '/assets/img/' | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+    <article>
+      {{ content }}
+    </article>
+  </div>
+</div>
