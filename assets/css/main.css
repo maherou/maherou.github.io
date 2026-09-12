@@ -306,4 +306,3 @@ section.block h2 { margin-top: 0; }
 .site-footer a { color: var(--text-muted); }
 .site-footer a:hover { color: var(--accent); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 4px 18px; list-style: none; margin: 0; padding: 0; }
-.footer-personal { font-size: 0.85rem; }
