@@ -7,7 +7,7 @@ subtitle: Papers, whitepapers, and talks on scientific software, HPC-AI strategy
 ## Generative AI in research and education
 
 A running series of whitepapers on using generative AI tools in computer science research and
-capstone teaching, collected on the [Teaching Archive]({{ '/Teaching/AI-Assisted-Research/' | relative_url }}).
+capstone teaching: [AI-Assisted Computer Science Research]({{ '/Writing/AI-Assisted-Research/' | relative_url }}).
 
 ## Papers
 
