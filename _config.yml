@@ -1,7 +1,8 @@
 title: Michael A. Heroux
 description: >
-  Michael A. Heroux — HPC-AI software strategy, advisory, and research leadership.
-  Consulting, board and advisory work, and four decades of scientific software leadership.
+  Michael A. Heroux — scientific and high-performance computing software.
+  Founder of Trilinos, Kokkos, Mantevo, and HPCG; former director of software
+  technology for the US Exascale Computing Project.
 url: "https://maherou.github.io"
 baseurl: ""
 
@@ -9,7 +10,7 @@ baseurl: ""
 author: Michael A. Heroux
 author_short: Mike Heroux
 author_img: MikeHerouxHeadshot.jpg
-tagline: HPC-AI software strategy & advisory
+tagline: Scientific software for high-performance computing
 email: mheroux@acm.org
 social:
   linkedin: michael-heroux-763590
@@ -18,10 +19,10 @@ social:
 
 # Primary site navigation — edit this list to add/remove/reorder nav items
 nav:
-  - title: Consulting
-    url: /Consulting/
   - title: Bio
     url: /Bio/
+  - title: Now
+    url: /Now/
   - title: Research
     url: /Projects/
   - title: Writing

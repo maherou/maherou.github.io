@@ -6,7 +6,7 @@ subtitle: A body of work in scientific and high-performance computing software, 
 
 These projects reflect work founded or led during my time at Sandia National Laboratories and the
 US Department of Energy. Several continue as active, community-run efforts; others are complete
-and preserved here for reference. For what I'm doing now, see [Consulting]({{ '/Consulting/' | relative_url }}).
+and preserved here for reference.
 
 <div class="card-grid" style="margin-top: 1.5em;">
 {% assign sorted_projects = site.projects | sort: 'order' %}
