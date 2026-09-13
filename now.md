@@ -12,7 +12,11 @@ subtitle: What Mike Heroux is doing since retiring from Sandia National Laborato
   software systems and futures
 - **PESO Project** (DOE Office of Advanced Scientific Computing Research) &mdash; Co-lead, with
   Lois Curfman McInnes, stewarding scientific software ecosystems for HPC-AI applications
-- **E4S** &mdash; presently leading the Extreme-scale Scientific Software Stack project
+- **E4S** &mdash; presently leading the Ecosystem for Science project
+- **Scientific Software Horizons** &mdash; Co-host, with Lois Curfman McInnes, of a podcast series
+  on scientific software, available on
+  [Spotify](https://open.spotify.com/show/2Eiy5ZMCtVhwEJNZtZhAfA?si=3af5aa21944c40b5) and
+  [YouTube](https://www.youtube.com/@scientificsoftwarehorizons)
 
 ## Ongoing interests
 

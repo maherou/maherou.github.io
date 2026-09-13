@@ -8,9 +8,9 @@ order: 7
 ---
 Research software science (RSS) promotes the use of scientific methodologies to explore and establish broadly applicable knowledge. Using RSS, we can pursue sustainable, repeatable, and reproducible software improvements that positively impact research software toward improved scientific discovery.
 
-The goals of RSS require collaboration with cognitive and social scientists, to access their expertise and scientific processes and tools. Including scientists with this background represents a next step in increasing the diversity of scientific software teams. Early teams were composed primarily of experts in the given domain science, then adding mathematics to assure model rigor, then computer science to assure effective and efficient algorithms and data structures, and then software engineering to manage software resources.
+The goals of RSS require collaboration with cognitive and social scientists, to access their expertise and scientific processes and tools. Including scientists with this background represents a next step in broadening the range of expertise on scientific software teams. Early teams were composed primarily of experts in the given domain science, then adding mathematics to assure model rigor, then computer science to assure effective and efficient algorithms and data structures, and then software engineering to manage software resources.
 
-Investing in RSS is a natural next step in increasing software team diversity to improve the impact of software on scientific research.
+Investing in RSS is a natural next step in broadening the range of expertise on software teams to improve the impact of software on scientific research.
 
 ### Resources
 

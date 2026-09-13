@@ -6,7 +6,7 @@ img: ecp-logo.png
 years: 2016 &ndash; 2024
 order: 5
 ---
-The US Exascale Computing Project (ECP) was an effort to create a capable, sustainable, exascale computing ecosystem. I was the director of software technology for ECP from 2017 to 2024. A key deliverable of ECP is the Extreme-scale Scientific Software Stack (E4S).
+The US Exascale Computing Project (ECP) was an effort to create a capable, sustainable, exascale computing ecosystem. I was the director of software technology for ECP from 2017 to 2024. A key deliverable of ECP is the Ecosystem for Science (E4S).
 
 ECP Website: [https://www.exascaleproject.org](https://www.exascaleproject.org)
 
