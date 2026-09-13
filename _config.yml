@@ -50,6 +50,17 @@ collections:
     sort_by: order
 
 defaults:
+  # Default social share image (og:image / twitter:image) for link previews,
+  # e.g. when pasting the site URL into iMessage or Slack. Individual pages
+  # can override by setting their own `image` front matter.
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/img/social-share.jpg
+        width: 1200
+        height: 1200
+        alt: "Portrait of Michael A. Heroux"
   - scope:
       path: ""
       type: pages
