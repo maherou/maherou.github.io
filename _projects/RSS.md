@@ -2,7 +2,7 @@
 permalink: /Projects/RSS/
 title: "Research Software Science Project"
 description: Applying scientific methodologies to understand and improve how software is developed and used to advance research.
-img: RSS.png
+img: RSS-icon.svg
 years: Founded 2023 &middot; ongoing
 order: 7
 ---

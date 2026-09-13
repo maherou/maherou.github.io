@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-label="Research Software Science">
+  <rect x="0" y="0" width="900" height="120" fill="#1f4b63"/>
+  <rect x="0" y="120" width="900" height="120" fill="#9a5a24"/>
+  <rect x="0" y="240" width="900" height="120" fill="#3f6650"/>
+  <text x="450" y="80" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="64" letter-spacing="4" fill="#ffffff">RESEARCH</text>
+  <text x="450" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="64" letter-spacing="4" fill="#ffffff">SOFTWARE</text>
+  <text x="450" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="64" letter-spacing="4" fill="#ffffff">SCIENCE</text>
+</svg>

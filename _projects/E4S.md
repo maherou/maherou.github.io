@@ -2,7 +2,7 @@
 permalink: /Projects/E4S/
 title: "E4S Project"
 description: The Extreme-scale Scientific Software Stack — a curated software portfolio for HPC-AI applications.
-img: E4S-dark-green.png
+img: E4S-logo.png
 years: Founded 2018 &middot; ongoing
 order: 6
 ---
