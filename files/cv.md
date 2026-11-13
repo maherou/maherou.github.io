@@ -14,7 +14,7 @@ Education
 Work experience
 ======
 * 2025 - present: Hyperion Research, Inc.
-  * HPC-AI Software System Analyst
+  * Consulting Analyst
   * Research and Analysis in HPC-AI Software Systems and Futures
 
 * 2024 - present: Hewlett Packard Enterprise, Inc.
