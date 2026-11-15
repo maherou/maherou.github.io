@@ -93,3 +93,26 @@ title: Michael A. Heroux
     </ul>
   </div>
 </section>
+
+<section class="block" id="publications">
+  <div class="container">
+    <h2>Publications</h2>
+    <p class="section-intro">Highly cited papers and recent papers, drawn from Google Scholar.</p>
+    <div class="pubs" data-src="{{ '/scholar_highlights.json' | relative_url }}" hidden>
+      <div class="pubs-group">
+        <h3>Highly cited (500+ citations)</h3>
+        <ol class="pubs-list" data-list="highly_cited"></ol>
+      </div>
+      <div class="pubs-group">
+        <h3>Recent (newest first, 20+ citations)</h3>
+        <ol class="pubs-list" data-list="recent"></ol>
+      </div>
+    </div>
+    <p class="pubs-fallback">Full list on Google Scholar.</p>
+    <p class="pubs-footer">
+      <a class="btn btn-secondary" data-scholar-link href="https://scholar.google.com/{{ site.social.google_scholar }}" target="_blank" rel="noopener">See all publications on Google Scholar</a>
+      <span class="pubs-updated" hidden></span>
+    </p>
+  </div>
+</section>
+<script src="{{ '/assets/js/scholar-highlights.js' | relative_url }}" defer></script>
