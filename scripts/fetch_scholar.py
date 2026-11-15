@@ -6,17 +6,23 @@
 #   recent: the 5 newest papers with >= 20 citations (newest first)
 #
 # Google Scholar has no official API. This uses the 'scholarly' library,
-# which reads the public profile page. The profile list does not include
-# author names, so the script then opens each selected paper's Scholar page
-# (about a dozen requests, a few seconds apart) to get its authors.
-# If Scholar blocks any request, the script exits without touching the
-# existing JSON file.
+# which reads the public profile page. If Scholar blocks the request, the
+# script exits without touching the existing JSON file.
+#
+# The profile list does not include author names, and Scholar blocks scripts
+# that open individual paper pages. So author names come from OpenAlex
+# (https://openalex.org), a free scholarly database with an official API,
+# matched on exact title. A paper with no exact match is listed without
+# authors.
 #
 # Copyright (c) 2026 Michael A. Heroux. Code under the MIT License.
 
 import json
+import re
 import sys
 import time
+import urllib.parse
+import urllib.request
 from datetime import datetime, timezone
 
 from scholarly import scholarly
@@ -28,7 +34,8 @@ OUTPUT_FILE = 'scholar_highlights.json'
 HIGH_CITATION_MIN = 500
 RECENT_CITATION_MIN = 20
 RECENT_COUNT = 5
-DETAIL_DELAY_SECONDS = 3   # pause between per-paper lookups, to be polite
+OPENALEX_URL = 'https://api.openalex.org/works'
+OPENALEX_DELAY_SECONDS = 0.2   # pause between lookups, to be polite
 
 
 def to_int(value, default=0):
@@ -72,27 +79,47 @@ def simplify(pub):
     }
 
 
+def normalize_title(title):
+    # Lowercase, drop punctuation and extra spaces, for exact-title matching.
+    return ' '.join(re.sub(r'[^\w\s]', ' ', title.lower()).split())
+
+
+def openalex_authors(title):
+    # Return the author list for an exact title match on OpenAlex, or ''.
+    query = urllib.parse.urlencode({'search': title, 'per-page': 5})
+    request = urllib.request.Request(
+        f'{OPENALEX_URL}?{query}',
+        headers={'User-Agent': 'fetch_scholar.py'})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        results = json.load(response).get('results', [])
+    wanted = normalize_title(title)
+    for work in results:
+        if normalize_title(work.get('title') or '') == wanted:
+            names = [a.get('author', {}).get('display_name', '')
+                     for a in work.get('authorships', [])]
+            return ', '.join(n for n in names if n)
+    return ''
+
+
 def add_authors(selected):
-    # Open each selected paper's Scholar page to get its author list (and its
-    # publisher link, when the profile list did not have one). A paper that
-    # appears in both lists is looked up only once.
+    # A paper that appears in both lists is looked up only once.
     todo = list({id(p): p for p in selected}.values())
-    print(f'Looking up authors for {len(todo)} papers...')
+    print(f'Looking up authors on OpenAlex for {len(todo)} papers...')
     for i, p in enumerate(todo, 1):
         if i > 1:
-            time.sleep(DETAIL_DELAY_SECONDS)
+            time.sleep(OPENALEX_DELAY_SECONDS)
         try:
-            filled = scholarly.fill(p['_raw'])
+            authors = openalex_authors(p['title'])
         except Exception as e:
-            print(f'Scholar blocked or failed on paper {i} of {len(todo)} '
-                  f'("{p["title"]}"): {e}')
-            print('Not overwriting the existing file. Try again later.')
-            sys.exit(1)
-        authors = format_authors(filled.get('bib', {}).get('author', ''))
+            print(f'  {i}/{len(todo)}  lookup failed ({e}); '
+                  f'listing without authors: {p["title"][:50]}')
+            continue
         if authors:
             p['authors'] = authors
-        p['url'] = paper_url(filled)
-        print(f'  {i}/{len(todo)}  {p["title"][:60]}')
+            print(f'  {i}/{len(todo)}  found   {p["title"][:60]}')
+        else:
+            print(f'  {i}/{len(todo)}  no match, listing without authors: '
+                  f'{p["title"][:50]}')
 
 
 def main():
@@ -100,12 +127,8 @@ def main():
     author = scholarly.search_author_id(SCHOLAR_ID)
     author = scholarly.fill(author, sections=['publications'])
 
-    papers = []
-    for raw in author.get('publications', []):
-        p = simplify(raw)
-        if p['title']:
-            p['_raw'] = raw   # kept so we can look up authors later
-            papers.append(p)
+    papers = [simplify(p) for p in author.get('publications', [])]
+    papers = [p for p in papers if p['title']]
     print(f'Found {len(papers)} publications.')
 
     if not papers:
@@ -127,9 +150,6 @@ def main():
     )[:RECENT_COUNT]
 
     add_authors(highly_cited + recent)
-
-    for p in highly_cited + recent:
-        p.pop('_raw', None)
 
     output = {
         'profile_url': PROFILE_URL,

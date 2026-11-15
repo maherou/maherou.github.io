@@ -9,7 +9,7 @@
   "highly_cited": [
     {
       "title": "An Overview of the Trilinos Project",
-      "authors": "",
+      "authors": "Michael A. Heroux, Roscoe A. Bartlett, Vicki E. Howle, Robert J. Hoekstra, Jonathan Joseph Hu, Tamara G. Kolda, Richard B. Lehoucq, Kevin R. Long, Roger P. Pawlowski, Eric Phipps, Andrew G. Salinger, Heidi Thornquist, Raymond S. Tuminaro, James Willenbring, ALAN E. WILLIAMS, Kendall S. Stanley",
       "venue": "ACM Transactions on Mathematical Software 31 (3), 2005",
       "year": 2005,
       "citations": 1585,
@@ -17,7 +17,7 @@
     },
     {
       "title": "An updated set of basic linear algebra subprograms (BLAS)",
-      "authors": "",
+      "authors": "L. S. Blackford, J. Demmel, Jack J. Dongarra, I. Duff, Sven J. Hammarling, G. Henry, Michael A. Heroux, L. Kaufman, Andrew Lumsdaine, A. Petitet, R. Pozo, K. Remington, R. C. Whaley",
       "venue": "ACM Transactions on Mathematical Software 28 (2), 135-151, 2002",
       "year": 2002,
       "citations": 1341,
@@ -25,7 +25,7 @@
     },
     {
       "title": "The international exascale software project roadmap",
-      "authors": "",
+      "authors": "Jack J. Dongarra, Pete Beckman, Terry R. Moore, Patrick Aerts, Giovanni Aloisio, Jean-Claude Andre, D. Barkai, Jean-Yves Berthou, Taisuke Boku, Bertrand Braunschweig, Franck Cappello, Barbara Chapman, Xuebin Chi, Alok Choudhary, Sudip S. Dosanjh, Thom H. Dunning, Sandro Fiore, Al Geist, Bill Gropp, Robert J. Harrison, Mark Hereld, Michael A. Heroux, Adolfy Hoisie, Koh Hotta, Zhong Jin, Yutaka Ishikawa, Fred Johnson, Sanjay Kale, R.D. Kenway, David Elliot Keyes, Bill Kramer, Jesús Labarta, A. Lichnewsky, Thomas Lippert, Bob Lucas, Arthur B. ‘Barney’ Maccabe, Satoshi Matsuoka, Paul C. Messina, Peter Michielse, Bernd W. Mohr, Matthias Mueller, Wolfgang E. Nagel, Hiroshi Nakashima, Michael E. Papka, Dan Reed, Mitsuhisa Sato, Ed Seidel, John M. Shalf, David E. Skinner, Marc Snir, Thomas Sterling, Rick L. Stevens, Frederick H. Streitz, Bob Sugar, Shinji Sumimoto, William M. Tang, John Taylor, Rajeev Thakur, Anne Trefethen, Mateo Valero, Aad J. van der Steen, Jeffrey S. Vetter, Peg Williams, Robert W. Wisniewski, Katherine Yelick",
       "venue": "The international journal of high performance computing applications 25 (1 …, 2011",
       "year": 2011,
       "citations": 1019,
@@ -33,7 +33,7 @@
     },
     {
       "title": "Improving performance via mini-applications",
-      "authors": "",
+      "authors": "Paul Crozier, Heidi Thornquist, Robert W. Numrich, Alan W. Williams, Harold Edwards, Eric R. Keiter, Mahesh Rajan, James Willenbring, Douglas W. Doerfler, Michael A. Heroux",
       "venue": "Sandia National Laboratories, Tech. Rep. SAND2009-5574, 2009",
       "year": 2009,
       "citations": 720,
@@ -41,7 +41,7 @@
     },
     {
       "title": "High-performance conjugate-gradient benchmark: A new metric for ranking high-performance computing systems",
-      "authors": "",
+      "authors": "Jack J. Dongarra, Michael A. Heroux, Piotr Łuszczek",
       "venue": "The International Journal of High Performance Computing Applications 30 (1 …, 2016",
       "year": 2016,
       "citations": 611,
@@ -49,7 +49,7 @@
     },
     {
       "title": "Enhancing reproducibility for computational methods",
-      "authors": "",
+      "authors": "Victoria Stodden, Marcia K. Mcnutt, David H. Bailey, Ewa Deelman, Yolanda Gil, Brooks Hanson, Michael A. Heroux, John P. A. Ioannidis, Michela Taufer",
       "venue": "Science 354 (6317), 1240-1241, 2016",
       "year": 2016,
       "citations": 592,
@@ -57,7 +57,7 @@
     },
     {
       "title": "An overview of Trilinos",
-      "authors": "",
+      "authors": "Kevin Long, Raymond S. Tuminaro, Roscoe A. Bartlett, Robert J. Hoekstra, Eric Phipps, Tamara G. Kolda, Richard B. Lehoucq, Heidi Thornquist, Jonathan Joseph Hu, ALAN E. WILLIAMS, Andrew G. Salinger, Victoria E. Howle, Roger P. Pawlowski, James Willenbring, Michael A. Heroux",
       "venue": "Technical Report SAND2003-2927, Sandia National Laboratories, 2003",
       "year": 2003,
       "citations": 510,
@@ -67,7 +67,7 @@
   "recent": [
     {
       "title": "Trilinos: Enabling scientific computing across diverse hardware architectures at scale",
-      "authors": "",
+      "authors": "Matthias Mayr, Alexander Heinlein, Christian Glusa, Sivasankaran Rajamanickam, Maarten Arnst, Roscoe A. Bartlett, Luc Berger‐Vergiat, Erik G. Boman, Karen Devine, Graham Harper, Michael A. Heroux, Mark Frederick Hoemmen, Jonathan Joseph Hu, Brian E. Kelley, Kyungjoo Kim, Drew Kouri, Paul Kuberry, Kim Liegeois, Curtis Ober, Roger P. Pawlowski, Carl Pearson, Mauro Perego, Eric Phipps, Denis Ridzal, Nathan V. Roberts, Christopher Siefert, Heidi Thornquist, Romin Tomasetti, Christian Robert Trott, Raymond S. Tuminaro, James Willenbring, Michael M. Wolf, Ichitaro Yamazaki",
       "venue": "ACM Transactions on Mathematical Software 52 (2), 1-34, 2026",
       "year": 2026,
       "citations": 26,
@@ -75,7 +75,7 @@
     },
     {
       "title": "Research software science: Expanding the impact of research software engineering",
-      "authors": "",
+      "authors": "Michael A. Heroux",
       "venue": "Computing in Science & Engineering 24 (6), 22-27, 2023",
       "year": 2023,
       "citations": 30,
@@ -83,7 +83,7 @@
     },
     {
       "title": "How community software ecosystems can unlock the potential of exascale computing",
-      "authors": "",
+      "authors": "Lois Curfman McInnes, Michael A. Heroux, Erik W. Draeger, Andrew R. Siegel, Susan Coghlan, Katie Antypas",
       "venue": "Nature Computational Science 1 (2), 92-94, 2021",
       "year": 2021,
       "citations": 26,
@@ -91,7 +91,7 @@
     },
     {
       "title": "Preparing sparse solvers for exascale computing",
-      "authors": "",
+      "authors": "Hartwig Anzt, Erik G. Boman, Robert D. Falgout, Pieter Ghysels, Michael A. Heroux, Xiaoye Li, Lois Curfman McInnes, Richard T. Mills, Sivasankaran Rajamanickam, Karl Rupp, Barry Smith, Ichitaro Yamazaki, Ulrike Meier Yang",
       "venue": "Philosophical Transactions of the Royal Society A 378 (2166), 20190053, 2020",
       "year": 2020,
       "citations": 49,
@@ -99,7 +99,7 @@
     },
     {
       "title": "ECP software technology capability assessment report",
-      "authors": "",
+      "authors": "Michael A. Heroux, Lois Curfman McInnes, Rajeev Thakur, Jeffrey S. Vetter, Xiaoye Li, James Aherns, Todd Munson, Kathryn Mohror",
       "venue": "Oak Ridge National Laboratory (ORNL), Oak Ridge, TN (United States), 2020",
       "year": 2020,
       "citations": 40,

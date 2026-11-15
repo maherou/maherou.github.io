@@ -23,6 +23,30 @@
     return n;
   }
 
+  // Site owner's name: always shown, in bold, even when a long author list
+  // is shortened to "et al."
+  var OWNER = /Heroux/;
+
+  function authorLine(text) {
+    var names = text.split(', ');
+    var shown = names;
+    if (names.length > 8) {
+      shown = names.slice(0, 6);
+      var owner = names.filter(function (n) { return OWNER.test(n); })[0];
+      if (owner && !shown.some(function (n) { return OWNER.test(n); })) {
+        shown = names.slice(0, 5).concat(['\u2026', owner]);
+      }
+      shown = shown.concat(['et al.']);
+    }
+    var div = el('div', 'pub-authors');
+    shown.forEach(function (n, i) {
+      if (i) div.appendChild(document.createTextNode(', '));
+      if (OWNER.test(n)) div.appendChild(el('strong', null, n));
+      else div.appendChild(document.createTextNode(n));
+    });
+    return div;
+  }
+
   function item(p) {
     var li = el('li', 'pub');
     var title = String(p.title || '');
@@ -38,12 +62,7 @@
     }
     li.appendChild(t);
 
-    if (p.authors) {
-      // Long author lists: first six names, then "et al."
-      var names = String(p.authors).split(', ');
-      var shown = names.length > 8 ? names.slice(0, 6).join(', ') + ', et al.' : names.join(', ');
-      li.appendChild(el('div', 'pub-authors', shown));
-    }
+    if (p.authors) li.appendChild(authorLine(String(p.authors)));
 
     var venue = String(p.venue || '');
     var year = Number(p.year) > 0 ? String(p.year) : '';
