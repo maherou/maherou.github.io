@@ -27,11 +27,8 @@ nav:
     url: /Projects/
   - title: Publications
     url: /#publications
-  - title: Personal Projects
-    url: https://areflectionofyou.github.io
-    external: true
-  - title: Teaching Archive
-    url: https://collegeville.github.io/Corpus/
+  - title: Collegeville
+    url: https://collegeville.github.io
     external: true
   - title: CV
     url: /files/cv/
