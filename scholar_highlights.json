@@ -1,0 +1,109 @@
+{
+  "profile_url": "https://scholar.google.com/citations?user=3o3TleEAAAAJ&hl=en",
+  "updated": "2026-11-15",
+  "criteria": {
+    "highly_cited_min_citations": 500,
+    "recent_min_citations": 20,
+    "recent_count": 5
+  },
+  "highly_cited": [
+    {
+      "title": "An Overview of the Trilinos Project",
+      "authors": "",
+      "venue": "ACM Transactions on Mathematical Software 31 (3), 2005",
+      "year": 2005,
+      "citations": 1585,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:B3FOqHPlNUQC"
+    },
+    {
+      "title": "An updated set of basic linear algebra subprograms (BLAS)",
+      "authors": "",
+      "venue": "ACM Transactions on Mathematical Software 28 (2), 135-151, 2002",
+      "year": 2002,
+      "citations": 1341,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:u5HHmVD_uO8C"
+    },
+    {
+      "title": "The international exascale software project roadmap",
+      "authors": "",
+      "venue": "The international journal of high performance computing applications 25 (1 …, 2011",
+      "year": 2011,
+      "citations": 1019,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:zYLM7Y9cAGgC"
+    },
+    {
+      "title": "Improving performance via mini-applications",
+      "authors": "",
+      "venue": "Sandia National Laboratories, Tech. Rep. SAND2009-5574, 2009",
+      "year": 2009,
+      "citations": 720,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:NhqRSupF_l8C"
+    },
+    {
+      "title": "High-performance conjugate-gradient benchmark: A new metric for ranking high-performance computing systems",
+      "authors": "",
+      "venue": "The International Journal of High Performance Computing Applications 30 (1 …, 2016",
+      "year": 2016,
+      "citations": 611,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:-mN3Mh-tlDkC"
+    },
+    {
+      "title": "Enhancing reproducibility for computational methods",
+      "authors": "",
+      "venue": "Science 354 (6317), 1240-1241, 2016",
+      "year": 2016,
+      "citations": 592,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:kWvqk_afx_IC"
+    },
+    {
+      "title": "An overview of Trilinos",
+      "authors": "",
+      "venue": "Technical Report SAND2003-2927, Sandia National Laboratories, 2003",
+      "year": 2003,
+      "citations": 510,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:d1gkVwhDpl0C"
+    }
+  ],
+  "recent": [
+    {
+      "title": "Trilinos: Enabling scientific computing across diverse hardware architectures at scale",
+      "authors": "",
+      "venue": "ACM Transactions on Mathematical Software 52 (2), 1-34, 2026",
+      "year": 2026,
+      "citations": 26,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:g8uWPOAv7ggC"
+    },
+    {
+      "title": "Research software science: Expanding the impact of research software engineering",
+      "authors": "",
+      "venue": "Computing in Science & Engineering 24 (6), 22-27, 2023",
+      "year": 2023,
+      "citations": 30,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:x21FZCSn4ZoC"
+    },
+    {
+      "title": "How community software ecosystems can unlock the potential of exascale computing",
+      "authors": "",
+      "venue": "Nature Computational Science 1 (2), 92-94, 2021",
+      "year": 2021,
+      "citations": 26,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:2vr6o8x5NLkC"
+    },
+    {
+      "title": "Preparing sparse solvers for exascale computing",
+      "authors": "",
+      "venue": "Philosophical Transactions of the Royal Society A 378 (2166), 20190053, 2020",
+      "year": 2020,
+      "citations": 49,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:hvmnpdAuIbkC"
+    },
+    {
+      "title": "ECP software technology capability assessment report",
+      "authors": "",
+      "venue": "Oak Ridge National Laboratory (ORNL), Oak Ridge, TN (United States), 2020",
+      "year": 2020,
+      "citations": 40,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=3o3TleEAAAAJ&citation_for_view=3o3TleEAAAAJ:v6i8RKmR8ToC"
+    }
+  ]
+}
