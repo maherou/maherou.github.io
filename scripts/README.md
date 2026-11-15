@@ -16,7 +16,10 @@ profile. Run it whenever you want the lists refreshed.
    **Commit to master**, then click **Push origin**.
 5. The page updates within a minute or two of the push.
 
-If Google Scholar blocks the request, the script says so and leaves the existing
-`scholar_highlights.json` alone. Wait a while and try again.
+The script makes one request for the profile and then about a dozen more, a
+few seconds apart, to get each listed paper's authors. If Google Scholar blocks
+any of them (it sometimes shows a "Verifying your request" page to scripts), the
+script says so and leaves the existing `scholar_highlights.json` alone. Wait a
+while (an hour or a day) and try again.
 
-Copyright, 2026, Michael A. Heroux. Code under the MIT License.
+© 2026 Michael A. Heroux. Code under the MIT License.

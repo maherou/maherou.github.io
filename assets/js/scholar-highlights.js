@@ -3,7 +3,7 @@
 // never innerHTML, because the data comes from an outside source. If the file
 // is missing or malformed, the section shows only the Google Scholar link.
 //
-// Copyright, 2026, Michael A. Heroux. Code under the MIT License.
+// Copyright (c) 2026 Michael A. Heroux. Code under the MIT License.
 (function () {
   var root = document.querySelector('.pubs');
   if (!root) return;
@@ -38,7 +38,12 @@
     }
     li.appendChild(t);
 
-    if (p.authors) li.appendChild(el('div', 'pub-authors', String(p.authors)));
+    if (p.authors) {
+      // Long author lists: first six names, then "et al."
+      var names = String(p.authors).split(', ');
+      var shown = names.length > 8 ? names.slice(0, 6).join(', ') + ', et al.' : names.join(', ');
+      li.appendChild(el('div', 'pub-authors', shown));
+    }
 
     var venue = String(p.venue || '');
     var year = Number(p.year) > 0 ? String(p.year) : '';

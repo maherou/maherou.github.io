@@ -355,4 +355,4 @@ a.pub-title:hover { color: var(--accent); text-decoration: underline; }
 .pubs-fallback { color: var(--text-muted); margin: 0; }
 .pubs-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 24px 0 0; }
 .pubs-updated { font-size: 0.85rem; color: var(--text-muted); }
-.site-footer .license { margin-top: 4px; font-size: 0.85rem; }
+.site-footer .license { font-size: 0.85rem; }

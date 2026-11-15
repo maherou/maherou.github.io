@@ -89,3 +89,4 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENSE
+  - LICENSE-CONTENT

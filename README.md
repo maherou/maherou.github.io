@@ -44,6 +44,10 @@ If you ever need to fold `Teaching` in too, note that GitHub Pages ties a URL pr
 repo has Pages enabled for it — you'd need to disable Pages on the old repo once the new content
 is live at the same path, not before.
 
+## License
+
+Code is under the [MIT License](LICENSE). Documents, written content, images, audio, and video are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); see [LICENSE-CONTENT](LICENSE-CONTENT) for exceptions (published papers and slides, third-party logos). © 2026 Michael A. Heroux.
+
 ## Local preview
 
 ```
