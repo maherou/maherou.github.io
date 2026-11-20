@@ -36,6 +36,9 @@ nav:
 # Google Analytics measurement ID (leave blank to disable)
 analytics:
 
+# GoatCounter site code (leave blank to disable). Counts only production builds.
+goatcounter: maherou
+
 # Build settings
 markdown: kramdown
 plugins:

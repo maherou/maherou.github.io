@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#9a5a24">
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% if site.goatcounter and jekyll.environment == "production" %}{% include goatcounter.html %}{% endif %}
 </head>
 <body>
   {% include nav.html %}
